@@ -1,0 +1,36 @@
+{% load compress %}
+{% load static %}
+{% load tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    {% compress css %}
+        {% tailwind_css %}
+    {% endcompress %}
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css" />
+</head>
+<body class='bg-green-600'>
+    {% block nav %}
+     {% include 'partials/nav.html' %}
+    {% endblock nav %}
+    
+    {% block content %}{% endblock content %}
+    {% block footer %}{% endblock footer %}
+
+
+    {% compress js %}
+    <script type="text/javascript" src="{% static 'js/htmx.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+    {% endcompress %}
+    <script src="https://unpkg.com/flowbite@1.4.4/dist/flowbite.js"></script>
+    <script>
+        document.body.addEventListener('htmx:configRequest', (event) => {
+          event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+        })
+    </script>
+</body>
+</html>

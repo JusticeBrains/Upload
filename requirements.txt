@@ -1,0 +1,14 @@
+django
+django-compressor 
+pytailwindcss 
+crispy-tailwind
+django-crispy-forms 
+psycopg2-binary 
+django-tailwind 
+python-decouple 
+django-extensions 
+django-allauth 
+dj-database-url 
+prospector 
+redis 
+django-redis
