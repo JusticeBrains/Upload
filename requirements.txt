@@ -27,3 +27,4 @@ csscompressor
 pytailwindcss
 python-decouple
 django-allauth
+django-allauth
