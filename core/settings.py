@@ -83,20 +83,8 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 DATABASE_URL = os.getenv('DATABASE_URL')
-SUPABASE_NAME= config('SUPABASE_NAME')
-SUPABASE_USER= config('SUPABASE_USER')
-SUPABASE_PASS= config('SUPABASE_PASS')
-SUPABASE_HOST= config('SUPABASE_HOST')
-SUPABASE_PORT= config('SUPABASE_PORT')
+
 DATABASES = {
-    'production': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('SUPABASE_NAME'),
-        'USER': config('SUPABASE_USER'),
-        'PASSWORD': config('SUPABASE_PASS'),
-        'HOST': config('SUPABASE_HOST'),
-        'PORT': config('SUPABASE_PORT'),
-    },
     'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
 
