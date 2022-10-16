@@ -12,3 +12,4 @@ dj-database-url
 prospector 
 redis 
 django-redis
+hiredis
