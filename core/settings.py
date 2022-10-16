@@ -168,7 +168,7 @@ timestamp = get_git_changeset_timestamp(BASE_DIR)
 
 STATIC_URL = f'/theme/static/{timestamp}/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'theme/static',
+    BASE_DIR / 'static',
 ]
 STATIC_ROOT = BASE_DIR / 'theme/staticfiles'
 
