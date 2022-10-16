@@ -2,7 +2,8 @@ from pathlib import Path
 
 from django.core.management.utils import get_random_secret_key
 import os
-from core.versioning import get_git_changeset_timestamp
+from versioning import get_git_changeset_timestamp
+
 from decouple import config
 import dj_database_url
 
