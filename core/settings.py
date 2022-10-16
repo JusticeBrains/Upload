@@ -85,7 +85,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'theme/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -164,7 +164,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 
-
 timestamp = get_git_changeset_timestamp(BASE_DIR)
 
 STATIC_URL = f'/theme/static/{timestamp}/'
@@ -189,7 +188,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.CustomUser'
 
 # Compressor Config
-COMPRESS_ROOT = BASE_DIR / 'static'
+COMPRESS_ROOT = BASE_DIR / 'theme/staticfiles'
 COMPRESS_ENABLED = True
 
 # Crispy config
