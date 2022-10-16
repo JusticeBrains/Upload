@@ -10,10 +10,10 @@
                     </div> 
     
                     <div class=" flex space-x-5 justify-center  items-center pl-2">
-                        <a href="{% url 'academic_meetings:meeting-list' %}" class="dark:text-white">Meeting</a>
+                        <a href="{% url 'academic_meetings:meeting-list' %}" class="text-gray-700 dark:text-white">Meeting</a>
                         {% if user.is_superuser %}
-                        <a href="{% url 'academic_meetings:upload' %}" class="dark:text-white">Add Meetings</a>
-                        <a href="{% url 'account_logout' %}" class="dark:text-white">Logout</a>
+                        <a href="{% url 'academic_meetings:upload' %}" class="text-gray-700 dark:text-white">Add Meetings</a>
+                        <a href="{% url 'account_logout' %}" class="text-gray-700 dark:text-white">Logout</a>
                         {% endif %}
                         {% comment %} {% if user.is_authenticated %}
                         <a href="{% url 'account_logout' %}" class="dark:text-white">Logout</a>

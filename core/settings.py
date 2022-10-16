@@ -85,7 +85,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'theme/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -168,14 +168,13 @@ timestamp = get_git_changeset_timestamp(BASE_DIR)
 
 STATIC_URL = f'/theme/static/{timestamp}/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / 'theme/static',
 ]
 STATIC_ROOT = BASE_DIR / 'theme/staticfiles'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # other finders..
     'compressor.finders.CompressorFinder',
 )
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
@@ -188,7 +187,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.CustomUser'
 
 # Compressor Config
-COMPRESS_ROOT = BASE_DIR / 'theme/static'
+COMPRESS_ROOT = BASE_DIR / 'theme/staticfiles'
 COMPRESS_ENABLED = True
 
 # Crispy config
