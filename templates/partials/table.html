@@ -1,0 +1,61 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg justify-between w-2/3 mt-6 pt-6 mx-auto  bg-white rounded">
+    <h2 class="items-center text-center font-bold text-2xl uppercase justify-evenly mt-2">Meeting Records</h2>
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 p-2 m-2 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Description
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Download
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Upload Date
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for meeting in meetings %}
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                    {{ meeting.description }}
+                </th>
+                <td class="px-6 py-4">
+                    <a 
+                    {% comment %} {% if user.is_authenticated %}
+                        {% if meeting.status is SPECIAL and perms.users.is_special %}
+                            href="{{ meeting.document.url }}"
+                        {% elif meeting.status is REGULAR and perms.users.is_regular %}
+                            href="{{ meeting.document.url }}"
+                        {% endif %}
+                    {% else %}
+                    href="#"
+                    {% endif %} {% endcomment %}
+                         href="{{ meeting.document.url }}"
+                         class="bg-green-500 text-white p-2 rounded hover:underline" target="_blank">Download</a>
+                </td>
+                <td class="px-6 py-4">
+                   {{ meeting.publish }}
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+        
+    </table>
+    <div class="pagination text-center p-2 m-2 ">
+        <span class="step-links bg-green-500 p-1 m-1 rounded text-gray-100">
+            {% if meetings.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ meetings.number }} of {{ meetings.paginator.num_pages }}.
+            </span>
+    
+            {% if meetings.has_next %}
+                <a href="?page={{ meetings.paginator.num_pages }}" >last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>

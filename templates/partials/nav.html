@@ -1,0 +1,40 @@
+{% load static %}
+     <div class="2xl:container 2xl:mx-auto sm:inset-x-0">
+            <div class="bg-white dark:bg-gray-800 dark:rounded-none rounded shadow-lg py-5 px-7">
+                <nav class="flex justify-between">
+                    <div class="flex items-center space-x-3 lg:pr-16 pr-6">
+                        <img class="cursor-pointer dark:bg-white p-1 rounded w-12 h-12" src="{% static 'images/UMaTLogo.jpg' %}" alt="circle" />                       
+                        <h2 class="font-normal text-2xl leading-6 text-gray-800 dark:text-white ">
+                            <a href="{% url 'pages:home' %}">Upload</a>
+                        </h2>
+                    </div> 
+    
+                    <div class=" flex space-x-5 justify-center  items-center pl-2">
+                        <a href="{% url 'academic_meetings:meeting-list' %}" class="dark:text-white">Meeting</a>
+                        {% if user.is_superuser %}
+                        <a href="{% url 'academic_meetings:upload' %}" class="dark:text-white">Add Meetings</a>
+                        <a href="{% url 'account_logout' %}" class="dark:text-white">Logout</a>
+                        {% endif %}
+                        {% comment %} {% if user.is_authenticated %}
+                        <a href="{% url 'account_logout' %}" class="dark:text-white">Logout</a>
+                       {% else %}
+                        <a href="{% url 'account_login' %}" class="dark:text-white">Login</a>
+                        <a href="{% url 'account_signup' %}" class="dark:text-white">SignUp</a>
+                        {% endif %} {% endcomment %}
+                        <div class="relative dark:bg-white rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 ">
+                            
+                            <div class="animate-ping w-1.5 h-1.5 bg-green-600 rounded-full absolute -top-1 -right-1 m-auto duration-200"></div>
+                            <div class=" w-1.5 h-1.5 bg-green-600 rounded-full absolute -top-1 -right-1 m-auto shadow-lg"></div>
+                        </div>
+                                             
+                    </div>
+
+                    {% comment %} <button id="menu" aria-label="open menu" class="focus:outline-none focus:ring-2 focus:ring-gray-600 rounded-md text-gray-800" onclick="sidebarHandler(true)">
+                        <img class="icon icon-tabler icon-tabler-menu-2" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light-with-button-svg10.svg" alt="menu" />
+                    </button> {% endcomment %}
+                </nav>
+     
+            </div>
+        </div>
+      
+    
