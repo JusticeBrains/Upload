@@ -19,6 +19,7 @@ prospector = "*"
 redis = "*"
 django-redis = "*"
 hiredis = "*"
+gunicorn = "*"
 
 [dev-packages]
 

@@ -13,3 +13,4 @@ prospector
 redis 
 django-redis
 hiredis
+gunicorn
