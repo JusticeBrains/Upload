@@ -142,7 +142,7 @@ USE_TZ = True
 
 STATIC_URL = '/theme/static/'
 STATICFILES_DIRS = [BASE_DIR / 'theme/static',]
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'theme/staticfiles'
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
