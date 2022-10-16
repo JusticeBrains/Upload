@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d0166c17e78277f8bfe0cf231f06e657e2a9212da57ee7700e0bc5b35c6282bc"
+            "sha256": "b423a6df1cd4edef65617934a7e68f2f6e149579f756ae9d079c11002afa9257"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -163,6 +163,13 @@
                 "sha256:d9e69ae01f99abe6ad646947bba8941e896cb3aa805be2597a0400e0764b5818"
             ],
             "version": "==38.0.1"
+        },
+        "csscompressor": {
+            "hashes": [
+                "sha256:afa22badbcf3120a4f392e4d22f9fff485c044a1feda4a950ecc5eba9dd31a05"
+            ],
+            "index": "pypi",
+            "version": "==0.9.5"
         },
         "defusedxml": {
             "hashes": [

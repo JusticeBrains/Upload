@@ -2,6 +2,7 @@ from pathlib import Path
 
 from django.core.management.utils import get_random_secret_key
 import os
+from core.versioning import get_git_changeset_timestamp
 from decouple import config
 import dj_database_url
 
@@ -140,13 +141,23 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 
-STATIC_URL = '/theme/static/'
-STATICFILES_DIRS = [BASE_DIR / 'theme/static',]
+
+
+timestamp = get_git_changeset_timestamp(BASE_DIR)
+
+STATIC_URL = f'/theme/static/{timestamp}/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'theme/static',
+]
 STATIC_ROOT = BASE_DIR / 'theme/staticfiles'
-STATICFILES_FINDERS = [
+
+STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-]
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # Default primary key field type
 
@@ -158,7 +169,6 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # Compressor Config
 COMPRESS_ROOT = BASE_DIR / 'static'
 COMPRESS_ENABLED = True
-STATICFILES_FINDERS += ['compressor.finders.CompressorFinder',]
 
 # Crispy config
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'tailwind'

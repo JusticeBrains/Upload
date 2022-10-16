@@ -20,6 +20,7 @@ redis = "*"
 django-redis = "*"
 hiredis = "*"
 gunicorn = "*"
+csscompressor = "*"
 
 [dev-packages]
 
